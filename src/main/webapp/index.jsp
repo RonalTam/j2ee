@@ -2,13 +2,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <title>Java: J2EE và lập trình Web</title>
 </head>
 <body>
-<h1><%= "Hello World!" %>
+<h1><%= "Java: J2EE và lập trình Web" %>
 </h1>
 <br/>
-<a href="hello-servlet">Toi la ai</a>
-
+<a href="bai01">Bai tap 1</a>
 </body>
 </html>
