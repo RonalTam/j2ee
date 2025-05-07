@@ -8,7 +8,7 @@
 <h1><%= "Hello World!" %>
 </h1>
 <br/>
-<a href="hello-servlet">Toi la ai</a>
+<a href="greeting">Toi la ai</a>
 
 </body>
 </html>
