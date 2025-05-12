@@ -6,7 +6,7 @@ import jakarta.servlet.http.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "loginServlet", value = "/login", initParams = {
+@WebServlet(name = "loginServlet", value = "/call", initParams = {
         @WebInitParam(name = "message", value = "Xin chao from Annotation"),
 })
 public class Login extends HttpServlet {
