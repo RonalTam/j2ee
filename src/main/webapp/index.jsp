@@ -8,6 +8,6 @@
 <h1><%= "Java: J2EE và lập trình Web" %>
 </h1>
 <br/>
-<a href="bai01">Bai tap 1</a>
+<a href="/login">Form</a>
 </body>
 </html>
