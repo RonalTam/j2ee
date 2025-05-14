@@ -22,11 +22,17 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("<h1>Login Information</h1>");
-        out.println("<p>Username: " + username + "</p>");
-        out.println("<p>Password: " + password + "</p>");
-        out.println("</body></html>");
+        if ("admin".equals(username) && "admin".equals(password)) {
+            // Tạo session và lưu thông tin người dùng
+            HttpSession session = request.getSession();
+            session.setAttribute("username", username);
+
+            // Chuyển hướng đến trang chính
+            response.sendRedirect("welcome.html");
+        } else {
+            // Nếu thông tin đăng nhập không hợp lệ, hiển thị thông báo lỗi
+           response.getWriter().println("Tên đăng nhập hoặc mật khẩu không đúng.");
+           response.sendRedirect("login.html");
+        }
     }
 }
