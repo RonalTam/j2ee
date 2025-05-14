@@ -4,22 +4,30 @@ import java.io.*;
 
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-
+@WebServlet(name = "welcomeServlet", urlPatterns = "/welcome")
 public class WelcomeServlet extends HttpServlet {
     private String message;
 
-    public void init() {
-        message = "Welcome to the Java Web Application!";
-    }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("text/html");
+        HttpSession session = request.getSession(false);
         PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("<h1>" + message + "</h1>");
-        out.println("</body></html>");
+        response.setContentType("text/html");
+        if (session != null) {
+            String username = (String) session.getAttribute("username");
+            if (username != null) {
+                out.println("<h2>Chào mừng, " + username + "!</h2>");
+                out.println("<a href='logout'>Đăng xuất</a>");
+            } else {
+                out.println("<h2>Bạn chưa đăng nhập.</h2>");
+                out.println("<a href='login'>Đăng nhập</a>");
+            }
+        } else {
+            out.println("<h2>Phiên làm việc đã hết hạn.</h2>");
+            out.println("<a href='login.html'>Đăng nhập lại</a>");
+        }
+
+
     }
 
-    public void destroy() {
-    }
 }
